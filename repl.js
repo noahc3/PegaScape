@@ -6,6 +6,8 @@ const repl = require('repl');
 const events = require('events');
 const fs = require('fs');
 const path = require('path');
+const http = require('http'),
+url = require('url');
 
 const WebSocket = require('ws');
 const History = require('repl.history');
@@ -474,7 +476,10 @@ function checkAutoRun(){
 function loadScript(){
 	var script = "";
 	try{
-		scriptPath = loadConfig().jsPath;
+		var parsedURL = url.parse(req.url, true);
+		scriptRequested = parsedURL.script;
+		console.log(parsedURL.script);
+		scriptPath = loadConfig().autorunPaths[scriptRequested];
 		script = fns.evalfile.setup([scriptPath], (obj, output) => {
 			 throw output;
 	 	});

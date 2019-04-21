@@ -1,6 +1,9 @@
 {
   "sdbcore":true,
   "autorun":true,
-  "autorunScript": false,
-  "jsPath": ""
+  "autorunScript": true,
+  "autorunPaths": {
+    "nebera": "C:/pega/nebera.js",
+    "dejavu": "C:/pega/dejavu.js"
+  }
 }

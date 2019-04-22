@@ -4,6 +4,7 @@
   "autorunScript": true,
   "autorunPaths": {
     "nebera": "C:/pega/nebera.js",
-    "dejavu": "C:/pega/dejavu.js"
+    "dejavu": "C:/pega/dejavu.js",
+    "hbl": "C:/pega/hbl.js"
   }
 }

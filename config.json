@@ -1,11 +1,23 @@
 {
   "sdbcore":true,
-  "autoclose":true,
-  "autorun":true,
+  "autoclose":false,
+  "autorun":false,
   "autorunScript": true,
-  "autorunPaths": {
-    "hbl": "C:/pega/hbl.js",
-    "nereba": "C:/pega/nereba.js",
-    "reboot_to_rcm": "C:/pega/reboot_to_rcm.js"
+  "scripts": {
+    "hbl": {
+      "scriptPath": "C:/pega/hbl.js",
+      "selector": "hbl",
+      "icon": "/hbmenu.jpg"
+    },
+    "nereba": {
+      "scriptPath": "C:/pega/nereba.js",
+      "selector": "nereba",
+      "icon": "/nereba.png"
+    },
+    "reboot_to_rcm": {
+      "scriptPath": "C:/pega/reboot_to_rcm.js",
+      "selector": "reboot_to_rcm",
+      "icon": "/reboot_to_rcm.png"
+    }
   }
 }

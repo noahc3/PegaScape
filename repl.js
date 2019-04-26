@@ -477,8 +477,8 @@ function loadScript(reqScript){
 	var script = "";
 	var scriptPath = "";
 	try{
-		if (reqScript in loadConfig().autorunPaths) {
-			scriptPath = loadConfig().autorunPaths[reqScript];
+		if (reqScript in loadConfig().scripts) {
+			scriptPath = loadConfig().scripts[reqScript].scriptPath;
 		} else {
 			return undefined;
 		}

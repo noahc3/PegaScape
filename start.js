@@ -94,7 +94,29 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+function loadConfig() {
+	try {
+		fs.statSync("config.json"); // test existence
+		return JSON.parse(fs.readFileSync("config.json", "utf-8"));
+	} catch(e) {
+		var config = { // default config
+		};
+		fs.writeFileSync("config.json", JSON.stringify(config), "utf-8");
+		return config;
+	}
+}
+
 function serveIndex (req, res) {
+	var indexT = fs.readFileSync(path.resolve(__dirname, 'exploit/index.html'), "utf-8");
+	var items = "";
+	Object.keys(loadConfig().scripts).forEach(function(script) {
+		script = loadConfig().scripts[script];
+		items += `<td><a href="#${script.selector}" onclick="window.minmain();"><img style="width:160px" src="${script.icon}"></a></td>`;
+	});
+
+	indexT = indexT.replace("$$$ITEMS", items);
+
+	res.end(indexT);
 	res.end(fs.readFileSync(path.resolve(__dirname, 'exploit/index.html')));
 }
 

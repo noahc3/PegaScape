@@ -5,7 +5,7 @@
   "autorunScript": true,
   "autorunPaths": {
     "hbl": "C:/pega/hbl.js",
-    "nebera": "C:/pega/nebera.js",
+    "nereba": "C:/pega/nereba.js",
     "reboot_to_rcm": "C:/pega/reboot_to_rcm.js"
   }
 }

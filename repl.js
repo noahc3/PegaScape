@@ -475,15 +475,12 @@ function checkAutoRun(){
 // tries to load the js file speified in config.json
 function loadScript(reqScript){
 	var script = "";
+	var scriptPath = "";
 	try{
-		//var parsedURL = url.parse(req.url, true);
-		//scriptRequested = parsedURL.script;
-		//console.log(parsedURL.script);
-		//scriptPath = loadConfig().autorunPaths[scriptRequested];
-		if (reqScript == "hbl") {
-			scriptPath = "C:/pega/hbl.js";
+		if (reqScript in loadConfig().autorunPaths) {
+			scriptPath = loadConfig().autorunPaths[reqScript];
 		} else {
-			scriptPath = "C:/pega/nereba.js";
+			return undefined;
 		}
 		script = fns.evalfile.setup([scriptPath], (obj, output) => {
 			 throw output;
@@ -542,8 +539,9 @@ wss.on('connection', function (ws) {
 				if(checkAutoRun()){
 					const reqScript = data.script;
 					script = loadScript(reqScript);
-					console.log("autorun enabled");
-					sendMsg("evalfile", [script]);
+					if (script != undefined) {
+						sendMsg("evalfile", [script]);
+					}
 					ws.terminate();
 				}
 

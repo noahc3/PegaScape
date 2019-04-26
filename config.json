@@ -5,17 +5,17 @@
   "autorunScript": true,
   "scripts": {
     "hbl": {
-      "scriptPath": "C:/pega/hbl.js",
+      "scriptPath": "autoscripts/hbl.js",
       "selector": "hbl",
       "icon": "/hbmenu.jpg"
     },
     "nereba": {
-      "scriptPath": "C:/pega/nereba.js",
+      "scriptPath": "autoscripts/nereba.js",
       "selector": "nereba",
       "icon": "/nereba.png"
     },
     "reboot_to_rcm": {
-      "scriptPath": "C:/pega/reboot_to_rcm.js",
+      "scriptPath": "autoscripts/reboot_to_rcm.js",
       "selector": "reboot_to_rcm",
       "icon": "/reboot_to_rcm.png"
     }

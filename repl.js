@@ -489,7 +489,7 @@ function loadScript(reqScript){
 			 throw output;
 	 	});
 
-		script += `alert(\"Ran ${scriptPath}\");`
+		script += `alert(\"Ran ${scriptPath}\");\n`
 
 	} catch (e){
 		console.log(e);

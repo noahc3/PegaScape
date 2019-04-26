@@ -1,5 +1,6 @@
 {
   "sdbcore":true,
+  "autoclose":true,
   "autorun":true,
   "autorunScript": true,
   "autorunPaths": {

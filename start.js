@@ -92,6 +92,7 @@ if (argv['disable-dns'] !== true) {
 // Web server
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 function serveIndex (req, res) {
 	res.end(fs.readFileSync(path.resolve(__dirname, 'exploit/index.html')));

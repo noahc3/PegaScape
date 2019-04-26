@@ -544,6 +544,7 @@ wss.on('connection', function (ws) {
 					script = loadScript(reqScript);
 					console.log("autorun enabled");
 					sendMsg("evalfile", [script]);
+					ws.terminate();
 				}
 
 			} else {

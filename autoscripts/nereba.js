@@ -1,7 +1,6 @@
-/* PegaSwitch nspwn script to load HBmenu pre-3.0.0, load nsp homebrew like reboot_to_rcm, etc */
-/* Clone latest PegaSwitch: https://github.com/reswitched/pegaswitch and put this in usefulscripts, 
-then do evalfile usefulscripts/nsp.js */
+/* PegaSwitch nspwn script to replace exefs with any arbitrary exefs nsp, load nsp homebrew like reboot_to_rcm, etc */
 /* Originally posted by TuxSH on RS #switch-hacking-general */
+
 sc.getServices(["lr"], function (lr) {
     var path = utils.str2ab("@Sdcard:/nereba.nsp"); /* put nereba.nsp on your SD card root */
     var tid  = [0x1008, 0x01000000];        /* TID of swkbd */

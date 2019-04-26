@@ -1,12 +1,5 @@
-/* PegaSwitch nspwn script to load HBmenu pre-3.0.0, load nsp homebrew like reboot_to_rcm, etc */
-/* Clone latest PegaSwitch: https://github.com/reswitched/pegaswitch and put this in usefulscripts, 
-then do evalfile usefulscripts/nsp.js */
+/* PegaSwitch nspwn script to replace exefs with any arbitrary exefs nsp, load nsp homebrew like reboot_to_rcm, etc */
 /* Originally posted by TuxSH on RS #switch-hacking-general */
-
-
-/* This script does not launch automatically. After running the exploit, hide the script icons and tell the user to launch album  */
-document.getElementById("launch_options").className = "hidden";
-document.getElementById("after_launch").className = "";
 
 sc.getServices(["lr"], function (lr) {
     var path = utils.str2ab("@Sdcard:/hbl.nsp"); /* put hbl.nsp on your SD card root */
@@ -18,3 +11,7 @@ sc.getServices(["lr"], function (lr) {
         msg = sc.ipcMsg(1).data(tid).xDescriptor(path, path.byteLength, 0).sendTo(h).assertOk();
     });
 });
+
+/* This script does not launch automatically. After running the exploit, hide the script icons and unhide the message telling the user to launch album  */
+document.getElementById("launch_options").className = "hidden";
+document.getElementById("after_launch").className = "";

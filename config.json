@@ -14,6 +14,11 @@
       "selector": "nereba",
       "icon": "/nereba.png"
     },
+    "caffeine": {
+      "scriptPath": "autoscripts/caffeine.js",
+      "selector": "caffeine",
+      "icon": "/caffeine.png"
+    },
     "reboot_to_rcm": {
       "scriptPath": "autoscripts/reboot_to_rcm.js",
       "selector": "reboot_to_rcm",

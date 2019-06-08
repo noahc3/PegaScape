@@ -211,19 +211,13 @@ wss.on('connection', function (ws) {
 		const response = data.response;
 
 		if(type == "identification") {
-			var u8 = new Uint8Array(8);
+			var u8 = new Uint8Array(0x18);
 			var u32 = new Uint32Array(u8.buffer);
-			u32[0] = data.mac[0];
-			u32[1] = data.mac[1];
-			var mac = "";
-			for(var i = 0; i < 6; i++) {
-				var str = u8[i].toString(16);
-				while(str.length < 2) {
-					str = "0" + str;
-				}
-				mac = mac + str;
+			for(var i = 0; i < data.serial.length; i++) {
+				u32[i] = data.serial[i];
 			}
-			ws.macAddr = mac;
+			var serial = String.fromCharCode.apply(null, u8);
+			ws.serial = serial;
 			ws.fwVersion = data.version;
 			if(checkAutoRun()){
 				const reqScript = data.script;
@@ -234,7 +228,7 @@ wss.on('connection', function (ws) {
 				ws.terminate();
 			}
 		} else {
-			ee.emit(type, response, ws.macAddr);
+			ee.emit(type, response, ws.serial);
 		}
 	});
 });

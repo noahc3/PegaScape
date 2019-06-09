@@ -107,23 +107,25 @@ function loadConfig() {
 }
 
 function serveIndex (req, res) {
-	var version = getVersionFromUA(req.headers['user-agent']);
 	var indexT = fs.readFileSync(path.resolve(__dirname, 'exploit/index.html'), "utf-8");
-	var items = "";
-	Object.keys(loadConfig().scripts).forEach(function(script) {
-		script = loadConfig().scripts[script];
-		if (version >= script.minversion && version <= script.maxversion) {
-			items += `<td><a href="#${script.selector}" onclick="window.scriptSelected();"><img class="icon" style="width:160px" src="${script.icon}"/></a></td>`;
-		}
-	});
-
-	if (items.length > 0) {
-		indexT = indexT.replace("$$$ITEMS", items);
-	} else {
-		indexT = indexT.replace("$$$ITEMS", `<td><p id="no_scripts">There are no scripts compatible with your firmware version.</p></td>`);
-	}
+	if (!(req.headers['user-agent'] == null)) {
+		var version = getVersionFromUA(req.headers['user-agent']);
+		var items = "";
+		Object.keys(loadConfig().scripts).forEach(function(script) {
+			script = loadConfig().scripts[script];
+			if (version >= script.minversion && version <= script.maxversion) {
+				items += `<td><a href="#${script.selector}" onclick="window.scriptSelected();"><img class="icon" style="width:160px" src="${script.icon}"/></a></td>`;
+			}
+		});
 	
-	indexT = indexT.replace("$$$VERSION", getVersionStringFromNumber(version));
+		if (items.length > 0) {
+			indexT = indexT.replace("$$$ITEMS", items);
+		} else {
+			indexT = indexT.replace("$$$ITEMS", `<td><p id="no_scripts">There are no scripts compatible with your firmware version.</p></td>`);
+		}
+		
+		indexT = indexT.replace("$$$VERSION", getVersionStringFromNumber(version));
+	}
 
 	res.end(indexT);
 }

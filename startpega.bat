@@ -1,1 +1,1 @@
-node start.js --ip 192.168.43.135 --host 192.168.43.135
+node start.js --webapplet --ip 192.168.43.135 --host 192.168.43.135

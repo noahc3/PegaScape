@@ -117,7 +117,6 @@ function serveIndex (req, res) {
 	indexT = indexT.replace("$$$ITEMS", items);
 
 	res.end(indexT);
-	res.end(fs.readFileSync(path.resolve(__dirname, 'exploit/index.html')));
 }
 
 var fakeInternetEnabled = false;

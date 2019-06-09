@@ -7,27 +7,37 @@
     "hbl": {
       "scriptPath": "autoscripts/hbl.js",
       "selector": "hbl",
-      "icon": "/hbmenu.jpg"
+      "icon": "/hbmenu.jpg",
+      "minversion": 100,
+      "maxversion": 410
     },
     "nereba": {
       "scriptPath": "autoscripts/nereba.js",
       "selector": "nereba",
-      "icon": "/nereba.png"
+      "icon": "/nereba.png",
+      "minversion": 100,
+      "maxversion": 100
     },
     "caffeine": {
       "scriptPath": "autoscripts/caffeine.js",
       "selector": "caffeine",
-      "icon": "/caffeine.png"
+      "icon": "/caffeine.png",
+      "minversion": 300,
+      "maxversion": 300
     },
     "reboot_to_rcm": {
       "scriptPath": "autoscripts/reboot_to_rcm.js",
       "selector": "reboot_to_rcm",
-      "icon": "/reboot_to_rcm.png"
+      "icon": "/reboot_to_rcm.png",
+      "minversion": 100,
+      "maxversion": 100
     },
     "fake_news": {
       "scriptPath": "autoscripts/fake_news.js",
       "selector": "fake_news",
-      "icon": "/fake_news.png"
+      "icon": "/fake_news.png",
+      "minversion": 100,
+      "maxversion": 100
     }
   }
 }

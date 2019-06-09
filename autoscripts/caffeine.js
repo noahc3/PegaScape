@@ -9,7 +9,7 @@ sc.getServices(["lr"], function (lr) {
     var msg = sc.ipcMsg(0).data(storageId).sendTo(lr).assertOk(); /* nn::lr::ILocationResolverManager(StorageId storageId) => nn::lr::ILocationResolver */
     sc.withHandle(msg.movedHandles[0], (h) => {                   /* nn::lr::ILocationResolver::SetProgramNcaPath(u64 TID, const char *path) */
         msg = sc.ipcMsg(1).data(tid).xDescriptor(path, path.byteLength, 0).sendTo(h).assertOk();
-        prompt("Tap the text field below, then tap the power button.");
+        prompt("Tap the text field below, wait three seconds, then tap the power button.");
     });
 });
 

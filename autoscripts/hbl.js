@@ -13,5 +13,4 @@ sc.getServices(["lr"], function (lr) {
 });
 
 /* This script does not launch automatically. After running the exploit, hide the script icons and unhide the message telling the user to launch album  */
-document.getElementById("launch_options").className = "hidden";
-document.getElementById("after_launch").className = "";
+window.showAlbumMessage();

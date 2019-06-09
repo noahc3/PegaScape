@@ -107,16 +107,69 @@ function loadConfig() {
 }
 
 function serveIndex (req, res) {
+	var version = getVersionFromUA(req.headers['user-agent']);
 	var indexT = fs.readFileSync(path.resolve(__dirname, 'exploit/index.html'), "utf-8");
 	var items = "";
 	Object.keys(loadConfig().scripts).forEach(function(script) {
 		script = loadConfig().scripts[script];
-		items += `<td><a href="#${script.selector}" onclick="window.minmain();"><img style="width:160px" src="${script.icon}"></a></td>`;
+		if (version >= script.minversion && version <= script.maxversion) {
+			items += `<td><a href="#${script.selector}" onclick="window.scriptSelected();"><img class="icon" style="width:160px" src="${script.icon}"/></a></td>`;
+		}
 	});
 
-	indexT = indexT.replace("$$$ITEMS", items);
+	if (items.length > 0) {
+		indexT = indexT.replace("$$$ITEMS", items);
+	} else {
+		indexT = indexT.replace("$$$ITEMS", `<td><p id="no_scripts">There are no scripts compatible with your firmware version.</p></td>`);
+	}
+	
+	indexT = indexT.replace("$$$VERSION", getVersionStringFromNumber(version));
 
 	res.end(indexT);
+}
+
+function getVersionFromUA(ua) {
+	if (ua.indexOf('NF/4.0.0.4.25 ') !== -1) {
+		return 100;
+	} else if (ua.indexOf('NF/4.0.0.5.9 ') !== -1) {
+		return 200;
+	} else if (ua.indexOf('NF/4.0.0.5.10 ') !== -1) {
+		return 210;
+	} else if (ua.indexOf('NF/4.0.0.6.9 ') !== -1) {
+		return 300;
+	} else if (ua.indexOf('NF/4.0.0.7.9 ') !== -1) {
+		return 400;
+	} else if (ua.indexOf('NF/4.0.0.8.9 ') !== -1) {
+		return 500;
+	} else if (ua.indexOf('NF/4.0.0.9.3 ') !== -1) {
+		return 510;
+	} else if (ua.indexOf('NF/4.0.0.10.13 ') !== -1) {
+		return 600;
+	} else {
+		return 0;
+	}
+}
+
+function getVersionStringFromNumber(version) {
+	if (version == 100) {
+		return '1.0.0';
+	} else if (version == 200) {
+		return '2.0.0';
+	} else if (version == 210) {
+		return '2.1.0';
+	} else if (version == 300) {
+		return '3.0.0';
+	} else if (version == 400) {
+		return '4.0.0';
+	} else if (version == 500) {
+		return '5.0.0';
+	} else if (version == 510) {
+		return '5.1.0';
+	} else if (version == 600) {
+		return '6.0.0';
+	} else {
+		return 'unknown';
+	}
 }
 
 var fakeInternetEnabled = false;

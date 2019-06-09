@@ -194,7 +194,7 @@ function loadScript(reqScript){
 			 throw output;
 	 	});
 
-		script += `alert(\"Ran ${scriptPath}\");\n`
+		script += `alert(\"Success!\");\n`
 
 	} catch (e){
 		console.log(e);

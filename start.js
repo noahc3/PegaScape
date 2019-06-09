@@ -20,12 +20,10 @@ const yargs = require('yargs');
 
 let argv = yargs
 	.usage('Usage $0')
-	.describe('enable-curses', 'Enable curses interface.')
 	.describe('disable-dns', 'Disables builtin DNS server.')
 	.describe('ip', 'Override IP address DNS server responds with')
 	.describe('host', 'Override listen IP.')
 	.describe('logfile', 'Writes debug log to file')
-	.describe('setuid', 'Sets UID after binding ports (drop root priveleges)')
 	.example('$0 --ip 1.2.4.8 --logfile debug.txt --setuid 1000')
 	.help('h')
 	.nargs('ip', 1)
@@ -46,10 +44,7 @@ if(os.platform() === 'win32') {
 	process.exit();
 }
 
-if (!argv['enable-curses'] && !argv.logfile) {
-	argv.logfile = 'pegaswitch.log'
-	console.warn('With curses disabled, a logfile (--logfile) is required. Defaulting to \"pegaswitch.log\".');
-}
+argv.logfile = 'pegaswitch.log'
 
 let logf = {
 	log: function (data) {
@@ -242,17 +237,18 @@ let failures = 0;
 let successes = 0;
 
 app.post('/log', function (req, res) {
+	
 	let message = req.body.msg;
 
 	if (message === 'Loaded' && (successes !== 0 || failures !== 0)) {
-		logger.log(`Success percentage: ${(successes / (successes + failures) * 100).toFixed(2)} (${successes + failures} samples)`);
+		//logger.log(`Success percentage: ${(successes / (successes + failures) * 100).toFixed(2)} (${successes + failures} samples)`);
 	} else if (message === '~~failed') {
-		failures++;
+		//failures++;
 	} else if (message === '~~success') {
-		successes++;
+		//successes++;
 	} else {
-		logger.log(message);
-		logf.log(message);
+		//logger.log(message);
+		//logf.log(message);
 	}
 
 	return res.sendStatus(200);
@@ -269,6 +265,7 @@ app.post('/cache', function (req, res) {
 });
 
 app.post('/error', function (req, res) {
+	/*
 	logger.log(`ERR [${req.body.msg[0]}]: ${req.body.msg[1]}`);
 	logf.log(`ERR [${req.body.msg[0]}]: ${req.body.msg[1]}`);
 	if (req.body.msg[2]) {
@@ -297,10 +294,13 @@ app.post('/error', function (req, res) {
 			}
 		}
 	}
+	*/
+
 	return res.sendStatus(200);
 });
 
 app.post('/filedump', function (req, res) {
+	/*
 	let name = 'dumps/' + req.get('Content-Disposition').replace(':', '');
 	let dir = path.dirname(name);
 
@@ -317,11 +317,9 @@ app.post('/filedump', function (req, res) {
 	req.on('end', function() {
 		return res.sendStatus(200);
 	});
-});
+	*/
 
-app.post('/fakeInternet', function (req, res) {
-	console.log('toggling fake internet');
-	fakeInternetEnabled = !fakeInternetEnabled;
+	return res.sendStatus(403);
 });
 
 httpServerStarted = new Promise((resolve, reject) => {
@@ -337,107 +335,16 @@ httpServerStarted = new Promise((resolve, reject) => {
 });
 
 Promise.all([dnsServerStarted, httpServerStarted]).then(() => {
-
-	if (argv['setgid'] !== undefined) {
-		process.setgid(argv['setgid']);
-		if(process.getgid() === 0) {
-			console.log('Failed to drop privileges');
-			process.exit(1);
-		}
-	}
 	
 	if (argv['webapplet'] !== undefined) {
 		fakeInternetEnabled = true;
 	}
 
-	if (argv['setuid'] !== undefined) {
-		if (argv['setgid'] === undefined) {
-			process.setgid(argv['setuid']);
-			if(process.getgid() === 0) {
-				console.log('Failed to drop privileges');
-				process.exit(1);
-			}
-		}
-		process.setuid(argv['setuid']);
-		if(process.getuid() === 0) {
-			console.log('Failed to drop privileges');
-			process.exit(1);
-		}
-	}
-
-	if (!argv['enable-curses']) {
-		console.log("Responding with address " + ipAddr);
-		console.log("Switch DNS IP: " + (argv.host || ip.address()) + " (Use this to connect)");
-		require('./repl');
-		logger = logf;
-		logf = {log: function() {}};
-	} else {
-		// Setup our terminal
-		let screen = blessed.screen({
-			smartCSR: true
-		});
-
-		let log = contrib.log({
-			parent: screen,
-			fg: 'green',
-			selectedFg: 'green',
-			label: 'Debug Log',
-			border: 'line',
-			width: '30%',
-			height: '100%',
-			left: '70%',
-			style: {
-				fg: 'default',
-				bg: 'default',
-				focus: {
-					border: {
-						fg: 'green'
-					}
-				}
-			}
-		});
-
-		logger = log;
-
-		let repl = blessed.terminal({
-			parent: screen,
-			cursor: 'line',
-			cursorBlink: true,
-			screenKeys: false,
-			label: 'REPL',
-			left: 0,
-			top: 0,
-			width: '70%',
-			height: '100%',
-			border: 'line',
-			style: {
-				fg: 'default',
-				bg: 'default',
-				focus: {
-					border: {
-						fg: 'green'
-					}
-				}
-			},
-			shell: path.resolve(__dirname, 'repl.js')
-		});
-
-		repl.on('exit', function () {
-			process.exit();
-		});
-
-		screen.append(log);
-		screen.append(repl);
-
-		repl.focus();
-
-		// Render everything
-		screen.render();
-
-		//Output ip addresses
-		repl.write("Responding with address " + ipAddr + "\r\n");
-		repl.write("Switch DNS IP: " + (argv.host || ip.address()) + " (Use this to connect)");
-	}
+	console.log("Responding with address " + ipAddr);
+	console.log("Switch DNS IP: " + (argv.host || ip.address()));
+	require('./repl');
+	logger = logf;
+	logf = {log: function() {}};
 
 }, (e) => {
 	console.log("rejected " + e);

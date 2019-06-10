@@ -200,10 +200,11 @@ app.get('/nros/:nroname', function (req, res) {
 });
 
 app.get('/cache', function (req, res) {
+	
 	var md5 = crypto.createHash('md5');
 	md5.update(req.headers['user-agent']);
 	md5 = md5.digest('hex');
-	var fn = path.resolve(__dirname, 'gadgetcaches/' + md5 + '.json');
+	var fn = path.resolve(__dirname, 'gadgetcaches/' + getVersionStringFromNumber(getVersionFromUA(req.headers['user-agent'])) + "_" + md5 + '.json');
 	if (fs.existsSync(fn)) {
 		res.end(fs.readFileSync(fn));
 	} else {
@@ -258,7 +259,7 @@ app.post('/cache', function (req, res) {
 	var md5 = crypto.createHash('md5');
 	md5.update(req.headers['user-agent']);
 	md5 = md5.digest('hex');
-	var fn = path.resolve(__dirname, 'gadgetcaches/' + md5 + '.json');
+	var fn = path.resolve(__dirname, 'gadgetcaches/' + getVersionStringFromNumber(getVersionFromUA(req.headers['user-agent'])) + "_" + md5 + '.json');
 	let cache = req.body.msg;
 	fs.writeFileSync(fn, JSON.stringify(cache));
 	return res.sendStatus(200);

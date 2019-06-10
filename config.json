@@ -22,7 +22,7 @@
       "scriptPath": "autoscripts/caffeine.js",
       "selector": "caffeine",
       "icon": "/caffeine.png",
-      "minversion": 300,
+      "minversion": 200,
       "maxversion": 300
     },
     "reboot_to_rcm": {

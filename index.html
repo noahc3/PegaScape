@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html >
   <head>
+	<title>PegaScape - User-friendly PegaSwitch Frontend</title>
+	<link rel="icon" href="https://puu.sh/DFjVh/3fe6791f12.png">
+	
     <script src="https://kit.fontawesome.com/cecd94e89e.js"></script>
   
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -11,6 +14,12 @@
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <style>
+	  @font-face {
+		  font-family: 'Arial Rounded MT Bold';
+		  font-style: normal;
+		  font-weight: normal;
+		  src: local('Arial Rounded MT Bold'), url('ariel_rounded_mt_bold.woff') format('woff');
+	  }
       html {
         background-color: #000000;
         color: #fff;
@@ -60,19 +69,23 @@
       }
 	  h1 {
 		color: #FFFFFF;
-		font-family:'Arial Rounded MT';
+		font-family:'Arial Rounded MT Bold';
 		font-size:50px;
 		padding-top:10px;
 	  }
       h2 {
 		color: #FFFFFF;
-		font-family:'Arial Rounded MT';
+		font-family:'Arial Rounded MT Bold';
 		font-size:35px;
 		padding-top:10px;
 	  }
 	  p {
 		color: #FFFFFF;
 		font-size:25px;
+	  }
+	  button {
+		margin-left:5px;
+		margin-right:5px;
 	  }
       #footer {
         padding-top:30px;
@@ -103,8 +116,8 @@
   </head>
   <body>
 	<img src="https://puu.sh/DEouP/2371396c45.png" width=100%/>
-	<div class="container" style="margin-top:-24%;padding-bottom:50px">
-        <div style="text-align:center;padding-bottom:30px;"><a href="https://www.github.com/noahc3/PegaScape/"><button type="button" class="btn btn-dark"><i class="fab fa-github"></i>   Source on GitHub</button></a></div>
+	<div class="container" style="margin-top:-22%;padding-bottom:50px">
+        <div style="text-align:center;padding-bottom:30px;"><a href="https://www.github.com/noahc3/PegaScape/"><button type="button" class="btn btn-dark"><i class="fab fa-github"></i>   Source on GitHub</button></a><a href="https://discord.teamatlasnx.com"><button type="button" class="btn btn-dark"><i class="fab fa-discord"></i>   Join Us on Discord</button></a></div>
 		<h1>What is PegaScape?</h1>
 		<p>PegaScape is a user-friendly public frontend for common PegaSwitch scripts including Nereba, Caffeine, HBL and more.</p>
 		
@@ -155,6 +168,8 @@
         <p><sup><sup>† 4.x.x HBL support should be added shortly, 5.0.0-6.0.1 HBL support coming soon&trade;</sup></sup></p>
 		
 		<h1>Demo</h1>
+		
+		<iframe width="552" height="315" src="https://www.youtube.com/embed/hjZvmoRjA1U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		
 		<iframe width="552" height="315" src="https://www.youtube.com/embed/s0R7vO6nO6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		
@@ -216,7 +231,7 @@
         
         <p style="padding-top:25px">On other firmwares, you can use the Webapplet DNS IP with Fake News in the same way as detailed above, or you can use the Wifi Authentication Prompt. When the respective DNS is configured, the Wifi Authentication Prompt can be accessed by attempting to manually connect to the Wifi network within settings, by trying to link an NNID, or by trying to manually update a game from the Software Update tab in software settings.</p>
     
-        <div id="footer">PegaScape by noahc3 and Team AtlasNX | Based on PegaSwitch by ReSwitched | Art by bernv3</div>
+        <div id="footer">PegaScape by noahc3 and Team AtlasNX | Based on <a href="https://github.com/reswitched/pegaswitch">PegaSwitch</a> by ReSwitched | Art by bernv3</div>
     </div>
   </body>
 </html>

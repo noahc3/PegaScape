@@ -2,7 +2,7 @@
 /* Originally posted by TuxSH on RS #switch-hacking-general */
 
 sc.getServices(["lr"], function (lr) {
-    var path = utils.str2ab("@Sdcard:/nereba.nsp"); /* put nereba.nsp on your SD card root */
+    var path = utils.str2ab("@Sdcard:/pegascape/nereba.nsp"); /* put nereba.nsp on your SD card root */
     var tid  = [0x1008, 0x01000000];        /* TID of swkbd */
     var storageId = 3;                      /* NAND (location of the swkbd applet) */
 

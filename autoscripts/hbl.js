@@ -2,7 +2,7 @@
 /* Originally posted by TuxSH on RS #switch-hacking-general */
 
 sc.getServices(["lr"], function (lr) {
-    var path = utils.str2ab("@Sdcard:/hbl.nsp"); /* put hbl.nsp on your SD card root */
+    var path = utils.str2ab("@Sdcard:/atmosphere/hbl.nsp"); /* put hbl.nsp on your SD card root */
     var tid  = [0x100D, 0x01000000];        /* TID of album */
     var storageId = 3;                      /* NAND (location of the Album applet) */
 

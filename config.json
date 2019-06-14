@@ -9,7 +9,7 @@
       "selector": "hbl",
       "icon": "/hbmenu.jpg",
       "minversion": 100,
-      "maxversion": 410
+      "maxversion": 300
     },
     "nereba": {
       "scriptPath": "autoscripts/nereba.js",

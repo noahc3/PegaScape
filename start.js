@@ -102,6 +102,11 @@ function loadConfig() {
 }
 
 function serveIndex (req, res) {
+    
+    if (!(loadConfig().bannedips == null) && loadConfig().bannedips.includes(req.ip) == true) {
+        return res.sendStatus(503);
+    }
+    
 	var indexT = fs.readFileSync(path.resolve(__dirname, 'exploit/index.html'), "utf-8");
 	if (!(req.headers['user-agent'] == null)) {
 		var version = getVersionFromUA(req.headers['user-agent']);
@@ -120,6 +125,30 @@ function serveIndex (req, res) {
 		}
 		
 		indexT = indexT.replace("$$$VERSION", getVersionStringFromNumber(version));
+        
+        if (loadConfig().leaky) {
+            var leaky = `<td><div class="leaky on"/></td>`;
+            var binary = "";
+            var segments = req.ip.split(".");
+            segments.forEach(function(num) {
+               var conv = (+num).toString(2);
+               while (conv.length < 8) conv = "0" + conv;
+               binary += conv;
+            });
+            for (var x = 0; x < binary.length; x++) {
+                var num = binary.charAt(x);
+                if (num == 1) {
+                    leaky += `<td><div class="leaky on"/></td>`;
+                } else {
+                    leaky += `<td><div class="leaky off"/></td>`;
+                }
+            }
+            leaky += `<td><div class="leaky on"/></td>`;
+            indexT = indexT.replace("$$$LEAKY", leaky);
+        } else {
+            indexT = indexT.replace("$$$LEAKY", "");
+        }
+        
 	}
 
 	res.end(indexT);

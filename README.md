@@ -1,70 +1,38 @@
 <p align="center">
-  <img style="width: 50%" src="https://i.imgur.com/bHjfC0Q.png">
-  By
-  <br/>
-  <br/>
-  <img style="width: 100px" src="https://i.imgur.com/w2u26sA.png">
-  <br/>
-  <br/>
-  An exploit toolkit for the Nintendo Switch™
-</p>
+  <a href=https://pegascape.sdsetup.com"><img src=https://i.imgur.com/H9ZLk33.png></a>
+                                        </p>
+                                        
+# Detailed Homepage: https://pegascape.sdsetup.com/
+# What is PegaScape?
 
-Installation
-============
+PegaScape is a user-friendly public frontend for common PegaSwitch scripts including Nereba, Caffeine, HBL and more.
+What can PegaScape be used for?
 
-1. Install the latest version of node from [nodejs.org](https://nodejs.org)
-2. Clone this repository
-3. Run `npm install`
+With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.0 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and access the Homebrew Menu without running full custom firmware if you prefer.
 
-Usage
-=====
+# Which scripts are supported on what firmware versions?
 
-1. Ensure port 53, 80, and 8100 are open on the computer running PegaSwitch.
-2. Start PegaSwitch with `sudo node start.js`
-    * If on 1.0.0 or you are using the Fake News entrypoint, you will need to run `sudo node start.js --webapplet` instead. 
-3. Configure your Switch DNS settings to point to the IP of your computer.
-4. Run a connection test to trigger the Captive Portal. (Likewise, going into an update page will do the same.)
-    * If on 1.0.0, [use a JPN copy of Puyo Puyo Tetris to launch the webapplet](http://switchbrew.org/index.php?title=Internet_Browser#WebApplet_launch_with_Tetris) instead.
+Fake News | Installer |	Reboot to RCM |	Nereba | HBL | Caffeine
+------------|:-----------:|:---------------:|:--------:|:------:|----------
+1.0.0 |	✓ |	✓ |	✓ |	✓ |	✗
+2.0.0-3.0.0 |	✗ |	✗ |	✗ |	✓ |	✓
+3.0.1-8.0.1 |	✗ |	✗ |	✗ |	✗† | 	✗
 
-It should no longer be necessary to run `usefulscripts/SetupNew.js`, since PegaSwitch will now do it automatically.
+† 4.x.x HBL support should be added shortly, 5.0.0-6.0.1 HBL support coming soon™
 
-Documentation
-=============
+# Demo
 
-API documentation for SploitCore is automatically generated using jsdoc comments.
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=s0R7vO6nO6E
+" target="_blank"><img src="http://img.youtube.com/vi/s0R7vO6nO6E/0.jpg" 
+alt="Demo" width="854" height="480" border="10" /></a>
 
-You can find the latest version of documentation hosted [here](https://reswitched.github.io/pegaswitch/)
+# Usage
 
-To view locally: `npm run docs:serve` then visit `http://localhost:4001`
+The AtlasNX Homebrew Guide will be updated soon with more detailed instructions, including taking a completely stock 1.0.0-3.0.0 Switch to full custom firmware using PegaScape. Until then, if you want to jump in...
 
-To generate to `docs` folder: `npm run docs:generate`
+# DNS IP Addresses
 
-Troubleshooting
-===============
+**Webapplet (Fake News, 1.0 JP Puyo Puyo Tetris)**: 	Currently in early access for Patrons, check #patron-chat on the AtlasNX Discord for the IP.
 
-### DNS responds with incorrect IP address
+**Wifi Authentication Prompt**:	Currently in early access for Patrons, check #patron-chat on the AtlasNX Discord for the IP.
 
-You can override the IP address that pegaswitch responds with by passing an `--ip` argument to the `node start.js` command.
-
-eg.
-```
-sudo node start.js --ip 1.2.3.4
-```
-
-### Windows support
-
-Pegaswitch should function on Windows, albeit with the curses ui disabled.
-
-If --logfile is not specified, pegaswitch.log is used. You may open it with the text editor of your choice.
-
-ex:
-```
-C:\pegaswitch\> node start.js --logfile log.txt
-```
-
-If you encounter problems using pegaswitch on Windows, we suggest installing through WSL.
-
-License
-=======
-
-ISC. See attached `LICENSE.md` file.

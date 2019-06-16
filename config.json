@@ -1,9 +1,10 @@
 {
-  "sdbcore":true,
+  "sdbcore":false,
   "autoclose":false,
   "autorun":false,
   "autorunScript": true,
-  "debug": true,
+  "nvcore": true,
+  "debug": false,
   "scripts": {
     "hbl": {
       "scriptPath": "autoscripts/hbl.js",

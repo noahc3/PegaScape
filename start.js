@@ -125,7 +125,13 @@ function serveIndex (req, res) {
 		}
 		
 		indexT = indexT.replace("$$$VERSION", getVersionStringFromNumber(version));
-        
+		
+		if (version == 400) {
+			indexT = indexT.replace("$$$WARNING", `<td><p style="font-size:15px;"><b>The spinner will freeze on firmwares 4.0.0 - 4.1.0, you should wait approximately 30-60 seconds for the exploit to run.</b></p></td>`);
+		} else {
+			indexT = indexT.replace("$$$WARNING", "");
+		}
+
         if (loadConfig().leaky) {
             var leaky = `<td><div class="leaky on"/></td>`;
             var binary = "";
@@ -286,54 +292,59 @@ app.post('/log', function (req, res) {
 	} else if (message === '~~success') {
 		//successes++;
 	} else {
-		//logger.log(message);
-		//logf.log(message);
+		if (loadConfig().debug === true) {
+			logger.log(message);
+			logf.log(message);
+		}
 	}
 
 	return res.sendStatus(200);
 });
 
 app.post('/cache', function (req, res) {
-	//var md5 = crypto.createHash('md5');
-	//md5.update(req.headers['user-agent']);
-	//md5 = md5.digest('hex');
-	//var fn = path.resolve(__dirname, 'gadgetcaches/' + getVersionStringFromNumber(getVersionFromUA(req.headers['user-agent'])) + "_" + md5 + '.json');
-	//let cache = req.body.msg;
-	//fs.writeFileSync(fn, JSON.stringify(cache));
+	if (loadConfig().debug === true) {
+		var md5 = crypto.createHash('md5');
+		md5.update(req.headers['user-agent']);
+		md5 = md5.digest('hex');
+		var fn = path.resolve(__dirname, 'gadgetcaches/' + getVersionStringFromNumber(getVersionFromUA(req.headers['user-agent'])) + "_" + md5 + '.json');
+		let cache = req.body.msg;
+		fs.writeFileSync(fn, JSON.stringify(cache));
+	}
+	
 	return res.sendStatus(200);
 });
 
 app.post('/error', function (req, res) {
-	/*
-	logger.log(`ERR [${req.body.msg[0]}]: ${req.body.msg[1]}`);
-	logf.log(`ERR [${req.body.msg[0]}]: ${req.body.msg[1]}`);
-	if (req.body.msg[2]) {
-		let smc = new sourceMap.SourceMapConsumer(JSON.parse(fs.readFileSync(sourceMapPath, 'utf8')));
-		let lines = req.body.msg[2].split('\n');
-		for (let i = 0; i < lines.length; i++) {
-			let line = lines[i].trim();
-			if (line === 'eval code') {
-				logger.log('eval code');
-				logf.log('eval code');
-				break;
-			}
-			if (line.includes('@')) {
-				let parts = line.split('@');
-				let fcnname = parts[0];
-				parts = parts[1].split(':');
-				let lineno = parseInt(parts[parts.length - 2]);
-				let columnno = parseInt(parts[parts.length - 1]);
-
-				let original = smc.originalPositionFor({line: lineno, column: columnno});
-				logger.log(fcnname + '@' + original.source + ':' + original.line + ':' + original.column);
-				logf.log(fcnname + '@' + original.source + ':' + original.line + ':' + original.column);
-			} else {
-				logger.log(line);
-				logf.log(line);
+	if (loadConfig().debug === true) {
+		logger.log(`ERR [${req.body.msg[0]}]: ${req.body.msg[1]}`);
+		logf.log(`ERR [${req.body.msg[0]}]: ${req.body.msg[1]}`);
+		if (req.body.msg[2]) {
+			let smc = new sourceMap.SourceMapConsumer(JSON.parse(fs.readFileSync(sourceMapPath, 'utf8')));
+			let lines = req.body.msg[2].split('\n');
+			for (let i = 0; i < lines.length; i++) {
+				let line = lines[i].trim();
+				if (line === 'eval code') {
+					logger.log('eval code');
+					logf.log('eval code');
+					break;
+				}
+				if (line.includes('@')) {
+					let parts = line.split('@');
+					let fcnname = parts[0];
+					parts = parts[1].split(':');
+					let lineno = parseInt(parts[parts.length - 2]);
+					let columnno = parseInt(parts[parts.length - 1]);
+	
+					let original = smc.originalPositionFor({line: lineno, column: columnno});
+					logger.log(fcnname + '@' + original.source + ':' + original.line + ':' + original.column);
+					logf.log(fcnname + '@' + original.source + ':' + original.line + ':' + original.column);
+				} else {
+					logger.log(line);
+					logf.log(line);
+				}
 			}
 		}
 	}
-	*/
 
 	return res.sendStatus(200);
 });

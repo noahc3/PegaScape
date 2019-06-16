@@ -223,6 +223,15 @@ app.get('/fake_news.mp', function (req, res) {
 	res.end(JSON.stringify(Array.prototype.slice.call(u8)));
 });
 
+app.get('/nspayload.bin', function (req, res) {
+  var u32 = new Uint32Array(fs.readFileSync(path.resolve(__dirname, 'files/nspayload.bin')));
+  res.end(JSON.stringify(Array.prototype.slice.call(u32)));
+});
+app.get('/fatalpayload.bin', function (req, res) {
+  var u32 = new Uint32Array(fs.readFileSync(path.resolve(__dirname, 'files/fatalpayload.bin')));
+  res.end(JSON.stringify(Array.prototype.slice.call(u32)));
+});
+
 app.get('/nros/:nroname', function (req, res) {
   var u8 = new Uint8Array(fs.readFileSync(path.resolve(__dirname, 'nros', req.params.nroname)));
   res.end(JSON.stringify(Array.prototype.slice.call(u8)));

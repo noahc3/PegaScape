@@ -3,6 +3,7 @@
   "autoclose":false,
   "autorun":false,
   "autorunScript": true,
+  "debug": true,
   "scripts": {
     "hbl": {
       "scriptPath": "autoscripts/hbl.js",
@@ -10,6 +11,13 @@
       "icon": "/hbmenu.jpg",
       "minversion": 100,
       "maxversion": 300
+    },
+    "hbl400": {
+      "scriptPath": "autoscripts/hbl400.js",
+      "selector": "hbl400",
+      "icon": "/hbmenu.jpg",
+      "minversion": 400,
+      "maxversion": 410
     },
     "nereba": {
       "scriptPath": "autoscripts/nereba.js",

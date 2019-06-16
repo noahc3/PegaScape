@@ -130,42 +130,52 @@
 			<thead>
 				<tr>
 					<th scope="col"></th>
-					<th scope="col">Fake News Installer</th>
-					<th scope="col">Reboot to RCM</th>
-					<th scope="col">Nereba</th>
-					<th scope="col">HBL</th>
-					<th scope="col">Caffeine</th>
+					<th scope="col">1.0.0</th>
+					<th scope="col">2.0.0-3.0.0</th>
+					<th scope="col">4.0.1</th>
+					<th scope="col">Other</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<th scope="row">1.0.0</th>
-					<td>✓</td>
-					<td>✓</td>
-					<td>✓</td>
-					<td>✓</td>
-					<td>✗</td>
+					<th scope="row">Fake News Installer</th>
+					<td style="color:#9aff60">✓</td>
+					<td style="color:#ff6554">✗</td>
+					<td style="color:#ff6554">✗</td>
+					<td style="color:#ff6554">✗</td>
 				</tr>
 				<tr>
-					<th scope="row">2.0.0-3.0.0</th>
-					<td>✗</td>
-					<td>✗</td>
-					<td>✗</td>
-					<td>✓</td>
-					<td>✓</td>
+					<th scope="row">Reboot to RCM</th>
+					<td style="color:#9aff60">✓</td>
+					<td style="color:#ff6554">✗</td>
+					<td style="color:#ff6554">✗</td>
+					<td style="color:#ff6554">✗</td>
 				</tr>
 				<tr>
-					<th scope="row">3.0.1-8.0.1</th>
-					<td>✗</td>
-					<td>✗</td>
-					<td>✗</td>
-					<td>✗<sup><sup>†</sup></sup></td>
-					<td>✗</td>
+					<th scope="row">Nereba</th>
+					<td style="color:#9aff60">✓</td>
+					<td style="color:#ff6554">✗</td>
+					<td style="color:#ff6554">✗</td>
+					<td style="color:#ff6554">✗</td>
+				</tr>
+				<tr>
+					<th scope="row">HBL</th>
+					<td style="color:#9aff60">✓</td>
+					<td style="color:#9aff60">✓</td>
+					<td style="color:#9aff60">✓<sup>†</sup></td>
+					<td style="color:#ff6554">✗</td>
+				</tr>
+				<tr>
+					<th scope="row">Caffeine</th>
+					<td style="color:#ff6554">✗</td>
+					<td style="color:#9aff60">✓</td>
+					<td style="color:#ff6554">✗</td>
+					<td style="color:#ff6554">✗</td>
 				</tr>
 		  </tbody>
 		</table>
         
-        <p><sup><sup>† 4.x.x HBL support should be added shortly, 5.0.0-6.0.1 HBL support coming soon&trade;</sup></sup></p>
+        <p><sup><sup>† 4.0.1 HBL support is experimental. Launching is slow and you cannot use the keyboard in homebrew apps.</sup></sup></p>
 		
 		<h1>Demo</h1>
 		
@@ -198,11 +208,11 @@
 			<tbody>
 				<tr>
 					<th scope="row">Nereba</th>
-					<td><span class="monospace"><a href="https://github.com/pixel-stuck/nereba/releases">nereba.nsp</a></span> at <span class="monospace">sd:/pegascape/nereba.nsp</span>, and a payload of your choice at <span class="monospace">sd:/nereba/payload.bin</span></td>
+					<td><span class="monospace"><a href="https://github.com/AtlasNX/PegaScape-Nereba/releases">nereba.nsp</a></span> at <span class="monospace">sd:/pegascape/nereba.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
 				</tr>
 				<tr>
 					<th scope="row">Caffeine</th>
-					<td><span class="monospace"><a href="https://puu.sh/DEqhX/6e327f79e0.nsp">caffeine.nsp</a></span> at <span class="monospace">sd:/pegascape/caffeine.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
+					<td><span class="monospace"><a href="https://github.com/AtlasNX/caffeine/releases">caffeine.nsp</a></span> at <span class="monospace">sd:/pegascape/caffeine.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
 				</tr>
                 <tr>
 					<th scope="row">Reboot to RCM</th>
@@ -226,11 +236,16 @@
         
         <p style="padding-top:25px">A script can take between 5 to 30 seconds to launch depending on your Internet connection and the server status. If an exploit fails to launch, try re-entering the browser and trying again. If it fails to launch multiple times, verify the files are on your SD card in the correct locations, or try rebooting your console. Create an issue on GitHub or contact an AtlasNX team member on Discord if issues persist.</p>
         
+		<p>Note that the public DNS servers are running the 90DNS configuration. This means you can use PegaScape and use homebrew with Internet functionality, but you cannot connect to any Nintendo services.<p>
+		
         <h2>Which browser/DNS IP should I use?</h2>
         <p>On 1.0.0, you must use the Webapplet DNS IP. You can use a JP copy of Puyo Puyo Tetris to access the browser, or you can use Fake News, a modified news entry which also launches the browser. Fake News can be installed with the Fake News entry on PegaScape, by injecting a News save with Fake News pre-installed, or by running the upcoming Fake News Injector homebrew.</p>
         
         <p style="padding-top:25px">On other firmwares, you can use the Webapplet DNS IP with Fake News in the same way as detailed above, or you can use the Wifi Authentication Prompt. When the respective DNS is configured, the Wifi Authentication Prompt can be accessed by attempting to manually connect to the Wifi network within settings, by trying to link an NNID, or by trying to manually update a game from the Software Update tab in software settings.</p>
     
+		<h2>Self-hosting</h2>
+		<p>If you would prefer to self-host PegaScape, see <a href="https://github.com/noahc3/PegaScape/#self-hosting">README.md#self-hosting</a>.</p>
+	
         <div id="footer">PegaScape by noahc3 and Team AtlasNX | Based on <a href="https://github.com/reswitched/pegaswitch">PegaSwitch</a> by ReSwitched | Art by bernv3</div>
     </div>
   </body>

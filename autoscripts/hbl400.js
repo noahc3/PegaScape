@@ -37,13 +37,14 @@ if (!sc.did_init) {
             sc.withHandle(res.movedHandles[0], function(hnd) {
                 var path = '@Sdcard://atmosphere/hbl.nsp';
                 var pbuf = utils.str2ab(path + '\x00')
-                sc.ipcMsg(1).datau64(utils.parseAddr('0100000000001008')).xDescriptor(pbuf, pbuf.byteLength).sendTo(hnd).assertOk().show();
+                sc.ipcMsg(1).datau64(utils.parseAddr('010000000000100D')).xDescriptor(pbuf, pbuf.byteLength).sendTo(hnd).assertOk().show();
+                sc.nv.prepare_close();
             });
         });
         sc.didModules = true;
     }
 
-    prompt("Tap the textbox below.");
+    window.showAlbumMessage();
     
     /*
     //var path = getNCAPath(utils.parseAddr('010000000000B14A'));

@@ -127,7 +127,7 @@ function serveIndex (req, res) {
 		indexT = indexT.replace("$$$VERSION", getVersionStringFromNumber(version));
 		
 		if (version == 400) {
-			indexT = indexT.replace("$$$WARNING", `<td><p style="font-size:15px;"><b>The spinner will freeze on firmwares 4.0.0 - 4.1.0, you should wait approximately 30-60 seconds for the exploit to run.</b></p></td>`);
+			indexT = indexT.replace("$$$WARNING", `<td><p style="font-size:15px;"><b>The spinner will freeze on firmwares 4.0.0 - 4.1.0, you should wait approximately 20-45 seconds for the exploit to run.</b></p></td>`);
 		} else {
 			indexT = indexT.replace("$$$WARNING", "");
 		}

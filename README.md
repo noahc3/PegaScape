@@ -10,19 +10,19 @@ PegaScape is a user-friendly public frontend for common PegaSwitch scripts inclu
 
 ## What can PegaScape be used for?
 
-With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.1 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and access the Homebrew Menu without running full custom firmware if you prefer.
+With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.0 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and access the Homebrew Menu without running full custom firmware if you prefer.
 
 ## Which scripts are supported on what firmware versions?
 
 Fake News | Installer |	Reboot to RCM |	Nereba | HBL | Caffeine
 ------------|:-----------:|:---------------:|:--------:|:------:|----------
 1.0.0 |	**✓** |	**✓** |	**✓** |	**✓** |	✗
-2.0.0-3.0.1 |	✗ |	✗ |	✗ |	**✓** |	**✓**
+2.0.0-3.0.0 |	✗ |	✗ |	✗ |	**✓** |	**✓**
 4.0.0 |	✗ |	✗ |	✗ |	✗† | 	✗
 4.0.1-4.1.0 |	✗ |	✗ |	✗ |	**✓** | 	✗
-5.0.0-Latest |	✗ |	✗ |	✗ |	✗ | 	✗
+Other |	✗ |	✗ |	✗ |	✗ | 	✗
 
-† nvcore offsets missing for 4.0.0, otherwise hbl is ready.
+† nvcore offsets missing for 4.0.0
 
 ## Demo
 

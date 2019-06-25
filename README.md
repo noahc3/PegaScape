@@ -10,7 +10,9 @@ PegaScape is a user-friendly public frontend for common PegaSwitch scripts inclu
 
 ## What can PegaScape be used for?
 
-With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.0 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and access the Homebrew Menu without running full custom firmware if you prefer.
+With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.0 and 4.0.1-4.1.0 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and access the Homebrew Menu without running full custom firmware if you prefer.
+
+**This means an easy-to-use entrypoint to fully featured CFW on 4.1.0 IPATCHED units.**
 
 ## Which scripts are supported on what firmware versions?
 
@@ -19,16 +21,17 @@ Fake News | Installer |	Reboot to RCM |	Nereba | HBL | Caffeine
 1.0.0 |	**✓** |	**✓** |	**✓** |	**✓** |	✗
 2.0.0-3.0.0 |	✗ |	✗ |	✗ |	**✓** |	**✓**
 4.0.0 |	✗ |	✗ |	✗ |	✗† | 	✗
-4.0.1-4.1.0 |	✗ |	✗ |	✗ |	**✓** | 	✗
+4.0.1-4.1.0 |	✗ |	✗ |	✗ |	**✓** | 	**✓**
 Other |	✗ |	✗ |	✗ |	✗ | 	✗
 
 † nvcore offsets missing for 4.0.0
 
 ## Demo
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=s0R7vO6nO6E
-" target="_blank"><img src="http://img.youtube.com/vi/s0R7vO6nO6E/0.jpg" 
-alt="Demo" width="854" height="480" /></a>
+[1.0.0 Switch booting into emuMMC 8.0.1](https://www.youtube.com/watch?v=hjZvmoRjA1U)
+
+[4.1.0 Switch booting into Atmosphere CFW](https://www.youtube.com/watch?v=DBVjrjoZO8w)
+
 
 ## Usage
 
@@ -69,7 +72,7 @@ You can also self-host PegaScape yourself:
 * Websockets are never stored anywhere and are kicked off after the initial connection process completes.
 * minmain.js is not run until an exploit is picked, rather than immediately when the page loads.
 * You cannot interface with Switches through the CLI.
-* Gadgetcache writes are disabled by default (enable with "cachewrites": true).
+* Gadgetcache writes are disabled by default (enable with "debug": true).
 * Endpoints not fit for a public server were removed.
 * Some functionality which could be exploited on the server was removed or tweaked.
 * Probably other stuff.
@@ -81,8 +84,8 @@ Nobody is responsible if you lose your data, brick your Switch, get banned, drop
 ## Credits
 
 * ReSwitched, hexkyz and other contributors for PegaSwitch.
-* Everyone who worked on smhax, nvcore, nspwn, etc.
+* Everyone who worked on smhax, nvhax, nspwn, etc.
+* liuervehc for <a href="https://github.com/liuervehc/caffeine/">Caffeine</a>, bringing the first CFW to IPATCHED Switches, and dealing with my random support DMs.
 * stuck_pixel for <a href="https://github.com/pixel-stuck/nereba/">Nereba</a> and <a href="https://github.com/pixel-stuck/reboot_to_rcm">reboot_to_rcm</a>.
-* liuervehc for <a href="https://github.com/liuervehc/caffeine/">Caffeine</a> and dealing with my random support DMs.
 * Switchbrew for <a href="https://github.com/switchbrew/nx-hbloader">nx-hbloader</a>.
 * bernv3 for the sexy background art.

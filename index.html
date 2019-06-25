@@ -83,6 +83,10 @@
 		color: #FFFFFF;
 		font-size:25px;
 	  }
+      li {
+        color: #FFFFFF;
+		font-size:25px;
+      }
 	  button {
 		margin-left:5px;
 		margin-right:5px;
@@ -122,7 +126,7 @@
 		<p>PegaScape is a user-friendly public frontend for common PegaSwitch scripts including Nereba, Caffeine, HBL and more.</p>
 		
 		<h1>What can PegaScape be used for?</h1>
-		<p>With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.0 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and access the Homebrew Menu without running full custom firmware if you prefer.</p>
+		<p>With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.0 or 4.0.1-4.1.0 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and access the Homebrew Menu without running full custom firmware if you prefer.</p>
 	
 		<h1>Which scripts are supported on what firmware versions?</h1>
 		
@@ -169,12 +173,35 @@
 					<th scope="row">Caffeine</th>
 					<td style="color:#ff6554">✗</td>
 					<td style="color:#9aff60">✓</td>
-					<td style="color:#ff6554">✗</td>
+					<td style="color:#9aff60">✓</td>
 					<td style="color:#ff6554">✗</td>
 				</tr>
 		  </tbody>
 		</table>
-		
+        
+        <h2>Warning</h2>
+        <p style="padding-top:15px">Up to now, almost all homebrew for the Switch have been developed with the concept in mind that everyone has access to RCM. As such, most homebrew and <b>especially RCM payloads</b> have zero protection for users on IPATCHED units.</p>
+        
+		<p style="padding-top:15px">Understand that this means it is incredibly easy to do something which, while considered normal on consoles with an exploitable RCM, <b>can render IPATCHED Switches permanently inoperable.</b> For your safety, you should avoid using the following homebrews on IPATCHED systems:</p>
+        
+        <ul>
+            <li>memloader</li>
+            <li>ChoiDujour</li>
+            <li>ChoiDujourNX (safe on emuMMC, do not use on sysnand)</li>
+            <li>Anything involving AutoRCM (briccmii, SX OS payload, etc)
+                <ul>
+                    <li>Many homebrews have been updated to block enabling AutoRCM on IPATCHED units including Hekate and ChoiDujourNX. Still exercise very high caution.</li>
+                </ul>
+            </li>
+            <li>Anything which writes to sysNAND without proper security or verification in place</li>
+        </ul>
+        
+        <p style="color:#ff6554">Upon using PegaScape to reboot into a payload on an IPATCHED Switch, you should <b>immediately</b> create a NAND backup with Hekate and dump all of your keys <b>(especially BIS keys)</b> with Lockpick_RCM. Understand that by not dumping these, <b>there is no recovery method for your Switch should anything cause it to fail to boot.</b></p>
+        
+        <p>You should <b>strongly consider</b> using an emuMMC <b>for all CFW usage</b> to avoid any damage to your Switch.</p>
+        
+        <p>That said, <i>celebrate!</i> We can now run CFW on IPATCHED Switches!</p>
+        
 		<h1>Demo</h1>
 		
 		<iframe width="552" height="315" src="https://www.youtube.com/embed/hjZvmoRjA1U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -182,9 +209,11 @@
 		<iframe width="552" height="315" src="https://www.youtube.com/embed/s0R7vO6nO6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		
 		<iframe width="552" height="315" src="https://www.youtube.com/embed/3vHY2e4SCeM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	
+
+		<iframe width="552" height="315" src="https://www.youtube.com/embed/DBVjrjoZO8w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
         <h1>Usage</h1>
-        <p>The AtlasNX Homebrew Guide will be updated soon with more detailed instructions, including taking a completely stock 1.0.0-3.0.0 Switch to full custom firmware using PegaScape. Until then, if you want to jump in...</p>
+        <p>The AtlasNX Homebrew Guide will be updated soon with more detailed instructions, including taking a completely stock 1.0.0-3.0.0 or 4.0.1-4.1.0 Switch to full custom firmware using PegaScape. Until then, if you want to jump in...</p>
     
         <h2>DNS IP Addresses</h2>
     
@@ -206,7 +235,7 @@
 			<tbody>
 				<tr>
 					<th scope="row">Nereba</th>
-					<td><span class="monospace"><a href="https://github.com/AtlasNX/PegaScape-Nereba/releases">nereba.nsp</a></span> at <span class="monospace">sd:/pegascape/nereba.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
+					<td><span class="monospace"><a href="https://github.com/AtlasNX/nereba/releases/latest">nereba.nsp</a></span> at <span class="monospace">sd:/pegascape/nereba.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
 
 				</tr>
 				<tr>

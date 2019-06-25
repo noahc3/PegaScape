@@ -34,6 +34,13 @@
       "minversion": 200,
       "maxversion": 300
     },
+    "caffeine400": {
+      "scriptPath": "autoscripts/caffeine400.js",
+      "selector": "caffeine400",
+      "icon": "/caffeine.png",
+      "minversion": 400,
+      "maxversion": 410
+    },
     "reboot_to_rcm": {
       "scriptPath": "autoscripts/reboot_to_rcm.js",
       "selector": "reboot_to_rcm",

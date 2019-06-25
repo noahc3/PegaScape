@@ -26,7 +26,7 @@ function sendMsg (cmd, ws, args = []) {
 }
 
 ee.on('error', function (message) {
-	brokenConsole.error('ERROR:', message.slice(0, 2));
+	console.error('ERROR:', message.slice(0, 2));
 });
 
 function loadConfig() {

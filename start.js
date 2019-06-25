@@ -39,9 +39,6 @@ if(os.platform() === 'win32') {
 		argv['enable-curses'] = false;
 	}
 
-} else if (process.getuid() !== 0) {
-	console.error('Please run as root so we can bind to port 53 & 80');
-	process.exit();
 }
 
 argv.logfile = 'pegaswitch.log'

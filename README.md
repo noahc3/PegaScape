@@ -35,15 +35,15 @@ Other |	✗ |	✗ |	✗ |	✗ | 	✗
 
 ## Usage
 
-The AtlasNX Homebrew Guide will be updated soon with more detailed instructions, including taking a completely stock 1.0.0-3.0.0 Switch to full custom firmware using PegaScape. Until then, if you want to jump in...
+Follow https://switch.homebrew.guide for an easy to follow noob guide for going from stock 1.0.0 - 3.0.0 and 4.0.1 - 4.1.0 with PegaScape. Otherwise, if you want to jump in...
 
 ### Public DNS IP Addresses
 
 We provide a public DNS IP for each common browser entrypoint present on the Switch:
 
-**Webapplet (Fake News, 1.0 JP Puyo Puyo Tetris)**: 	Currently in early access for Patrons, check #patron-chat on the AtlasNX Discord for the IP.
+**Webapplet (Fake News, 1.0 JP Puyo Puyo Tetris)**: 163.172.181.170
 
-**Wifi Authentication Prompt**:	Currently in early access for Patrons, check #patron-chat on the AtlasNX Discord for the IP.
+**Wifi Authentication Prompt**:	51.15.245.41
 
 Note that these public DNS servers run the 90DNS configuration. This means that the connection test will pass (for the Webapplet server) and you can use homebrew with internet functionality, but you will not be able to connect to Nintendo services.
 

@@ -1,329 +1,286 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>PegaScape - User-friendly PegaSwitch Frontend</title>
-    <link rel="icon" href="IconPegascape.png">
-
-    <script src="https://kit.fontawesome.com/cecd94e89e.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <style>
-        @font-face {
-            font-family: 'Arial Rounded MT Bold';
-            font-style: normal;
-            font-weight: normal;
-            src: local('Arial Rounded MT Bold'), url('ariel_rounded_mt_bold.woff') format('woff');
-        }
-        
-        html {
-            background-color: #000000;
-            color: #fff;
-            font-size: 1.2em;
-            font-family: "Open Sans", sans-serif;
-            box-sizing: border-box;
-            padding-top: 0;
-            margin-top: 0;
-            margin-left: 0;
-            margin-right: 0;
-        }
-        
-        body {
-            padding-top: 0;
-            padding-bottom: 0;
-            padding-left: 0;
-            padding-right: 0;
-            margin-top: 0;
-            margin-bottom: 0;
-            margin-left: 0;
-            margin-right: 0;
-            background-color: #14011b;
-        }
-        
-        .icon {
-            border-width: 2px;
-            border-color: #FFFFFF;
-            border-style: solid;
-            border-radius: 5px;
-        }
-        
-        .monospace {
-            font-family: monospace;
-            color: #e8f442;
-        }
-        
-        tr {
-            padding-left: 10px;
-            padding-right: 10px;
-            color: #FFFFFF;
-        }
-        
-        td {
-            padding-left: 10px;
-            padding-right: 10px;
-            color: #FFFFFF;
-        }
-        
-        table {
-            padding-top: 425px;
-            font-size: 25px;
-        }
-        
-        h1 {
-            color: #FFFFFF;
-            font-family: 'Arial Rounded MT Bold';
-            font-size: 50px;
-            padding-top: 10px;
-        }
-        
-        h2 {
-            color: #FFFFFF;
-            font-family: 'Arial Rounded MT Bold';
-            font-size: 35px;
-            padding-top: 10px;
-        }
-        
-        p {
-            color: #FFFFFF;
-            font-size: 25px;
-        }
-        
-        li {
-            color: #FFFFFF;
-            font-size: 25px;
-        }
-        
-        button {
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-        
-        #footer {
-            padding-top: 30px;
-            text-align: center;
-            font-size: 12px;
-            color: #FFFFFF;
-            text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-        }
-        
-        #no_scripts {
-            padding-top: 45px;
-            font-size: 1.5rem;
-            text-align: center;
-            text-shadow: -3px 0 #000, 0 3px #000, 3px 0 #000, 0 -3px #000;
-        }
-        
-        #after_launch_info {
-            padding-top: 45px;
-            font-size: 1.5rem;
-            text-align: center;
-            text-shadow: -3px 0 #000, 0 3px #000, 3px 0 #000, 0 -3px #000;
-        }
-        
-        .hidden {
-            display: none;
-            width: 0;
-            height: 0;
-        }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-</head>
-
-<body>
-    <img src="Pegascape.png" width=100%/>
-    <div class="container" style="margin-top:-22%;padding-bottom:50px">
-        <div style="text-align:center;padding-bottom:30px;"><a href="https://www.github.com/noahc3/PegaScape/"><button type="button" class="btn btn-dark"><i class="fab fa-github"></i>   Source on GitHub</button></a><a href="https://discord.sdsetup.com/"><button type="button" class="btn btn-dark"><i class="fab fa-discord"></i>   Join Us on Discord</button></a></div>
-        <h1>What is PegaScape?</h1>
-        <p>PegaScape is a user-friendly public frontend for common PegaSwitch scripts including Nereba, Caffeine, HBL and more.</p>
-
-        <h1>What can PegaScape be used for?</h1>
-        <p>With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.0 or 4.0.1-4.1.0 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and
-            access the Homebrew Menu without running full custom firmware if you prefer.</p>
-
-        <h1>Which scripts are supported on what firmware versions?</h1>
-
-        <table class="table">
+   <head>
+      <title>PegaScape - User-friendly PegaSwitch Frontend</title>
+      <link rel="icon" href="IconPegascape.png">
+      <script src="https://kit.fontawesome.com/cecd94e89e.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <style>
+         @font-face {
+         font-family: 'Arial Rounded MT Bold';
+         font-style: normal;
+         font-weight: normal;
+         src: local('Arial Rounded MT Bold'), url('ariel_rounded_mt_bold.woff') format('woff');
+         }
+         html {
+         background-color: #000000;
+         color: #fff;
+         font-size: 1.2em;
+         font-family: "Open Sans", sans-serif;
+         box-sizing: border-box;
+         padding-top: 0;
+         margin-top: 0;
+         margin-left: 0;
+         margin-right: 0;
+         }
+         body {
+         padding-top: 0;
+         padding-bottom: 0;
+         padding-left: 0;
+         padding-right: 0;
+         margin-top: 0;
+         margin-bottom: 0;
+         margin-left: 0;
+         margin-right: 0;
+         background-color: #14011b;
+         }
+         .icon {
+         border-width: 2px;
+         border-color: #FFFFFF;
+         border-style: solid;
+         border-radius: 5px;
+         }
+         .monospace {
+         font-family: monospace;
+         color: #e8f442;
+         }
+         tr {
+         padding-left: 10px;
+         padding-right: 10px;
+         color: #FFFFFF;
+         }
+         td {
+         padding-left: 10px;
+         padding-right: 10px;
+         color: #FFFFFF;
+         }
+         table {
+         padding-top: 425px;
+         font-size: 25px;
+         }
+         h1 {
+         color: #FFFFFF;
+         font-family: 'Arial Rounded MT Bold';
+         font-size: 50px;
+         padding-top: 10px;
+         }
+         h2 {
+         color: #FFFFFF;
+         font-family: 'Arial Rounded MT Bold';
+         font-size: 35px;
+         padding-top: 10px;
+         }
+         p {
+         color: #FFFFFF;
+         font-size: 25px;
+         }
+         li {
+         color: #FFFFFF;
+         font-size: 25px;
+         }
+         button {
+         margin-left: 5px;
+         margin-right: 5px;
+         }
+         #footer {
+         padding-top: 30px;
+         text-align: center;
+         font-size: 12px;
+         color: #FFFFFF;
+         text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+         }
+         #no_scripts {
+         padding-top: 45px;
+         font-size: 1.5rem;
+         text-align: center;
+         text-shadow: -3px 0 #000, 0 3px #000, 3px 0 #000, 0 -3px #000;
+         }
+         #after_launch_info {
+         padding-top: 45px;
+         font-size: 1.5rem;
+         text-align: center;
+         text-shadow: -3px 0 #000, 0 3px #000, 3px 0 #000, 0 -3px #000;
+         }
+         .hidden {
+         display: none;
+         width: 0;
+         height: 0;
+         }
+      </style>
+      <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var btn = document.getElementById("btn-launch-exploit");
+            if (navigator.userAgent.includes("Nintendo")) {
+                btn.style.display = "";
+            }
+        });
+      </script>
+   </head>
+   <body>
+      <img src="Pegascape.png" width=100%/>
+      <div class="container" style="margin-top:-22%;padding-bottom:50px">
+         <div id="btn-launch-exploit" style="text-align:center;padding-bottom:30px;display:none"><a href="http://exploit.sdsetup.com"><button type="button" class="btn btn-success" style="width:434px">Launch Exploit</button></a></div>
+         <div style="text-align:center;padding-bottom:30px;">
+             <a href="https://www.github.com/noahc3/PegaScape/"><button type="button" class="btn btn-dark"><i class="fab fa-github"></i>   Source on GitHub</button></a>
+             <a href="https://discord.sdsetup.com/"><button type="button" class="btn btn-dark"><i class="fab fa-discord"></i>   Join Us on Discord</button></a>
+         </div>
+         <h1>What is PegaScape?</h1>
+         <p>PegaScape is a user-friendly public frontend for common PegaSwitch scripts including Nereba, Caffeine, HBL and more.</p>
+         <h1>What can PegaScape be used for?</h1>
+         <p>With PegaScape, you can easily reboot from a stock Switch console running firmwares between 1.0.0-3.0.0 or 4.0.1-4.1.0 into full custom firmware and emuMMC. You can also install the Fake News entrypoint to make accessing PegaScape easier, and
+            access the Homebrew Menu without running full custom firmware if you prefer.
+         </p>
+         <h1>Which scripts are supported on what firmware versions?</h1>
+         <table class="table">
             <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">1.0.0</th>
-                    <th scope="col">2.0.0-3.0.0</th>
-                    <th scope="col">3.0.1-4.0.0</th>
-                    <th scope="col">4.0.1-4.1.0</th>
-                    <th scope="col">5.0.0+</th>
-                </tr>
+               <tr>
+                  <th scope="col"></th>
+                  <th scope="col">1.0.0</th>
+                  <th scope="col">2.0.0-3.0.0</th>
+                  <th scope="col">3.0.1-4.0.0</th>
+                  <th scope="col">4.0.1-4.1.0</th>
+                  <th scope="col">5.0.0+</th>
+               </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">Fake News Installer</th>
-                    <td style="color:#9aff60">✓</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                </tr>
-                <tr>
-                    <th scope="row">Reboot to RCM</th>
-                    <td style="color:#9aff60">✓</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                </tr>
-                <tr>
-                    <th scope="row">Nereba</th>
-                    <td style="color:#9aff60">✓</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#ff6554">✗</td>
-                </tr>
-                <tr>
-                    <th scope="row">HBL</th>
-                    <td style="color:#9aff60">✓</td>
-                    <td style="color:#9aff60">✓</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#9aff60">✓</td>
-                    <td style="color:#ff6554">✗</td>
-                </tr>
-                <tr>
-                    <th scope="row">Caffeine</th>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#9aff60">✓</td>
-                    <td style="color:#ff6554">✗</td>
-                    <td style="color:#9aff60">✓</td>
-                    <td style="color:#ff6554">✗</td>
-                </tr>
+               <tr>
+                  <th scope="row">Fake News Installer</th>
+                  <td style="color:#9aff60">✓</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+               </tr>
+               <tr>
+                  <th scope="row">Reboot to RCM</th>
+                  <td style="color:#9aff60">✓</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+               </tr>
+               <tr>
+                  <th scope="row">Nereba</th>
+                  <td style="color:#9aff60">✓</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#ff6554">✗</td>
+               </tr>
+               <tr>
+                  <th scope="row">HBL</th>
+                  <td style="color:#9aff60">✓</td>
+                  <td style="color:#9aff60">✓</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#9aff60">✓</td>
+                  <td style="color:#ff6554">✗</td>
+               </tr>
+               <tr>
+                  <th scope="row">Caffeine</th>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#9aff60">✓</td>
+                  <td style="color:#ff6554">✗</td>
+                  <td style="color:#9aff60">✓</td>
+                  <td style="color:#ff6554">✗</td>
+               </tr>
             </tbody>
-        </table>
-
-        <h2>Warning</h2>
-        <p style="padding-top:15px">Up to now, almost all homebrew for the Switch have been developed with the concept in mind that everyone has access to RCM. As such, most homebrew and <b>especially RCM payloads</b> have zero protection for users on IPATCHED units.</p>
-
-        <p style="padding-top:15px">Understand that this means it is incredibly easy to do something which, while considered normal on consoles with an exploitable RCM, <b>can render IPATCHED Switches permanently inoperable.</b> For your safety, you should avoid using the following
-            homebrews on IPATCHED systems:</p>
-
-        <ul>
+         </table>
+         <h2>Warning</h2>
+         <p style="padding-top:15px">Up to now, almost all homebrew for the Switch have been developed with the concept in mind that everyone has access to RCM. As such, most homebrew and <b>especially RCM payloads</b> have zero protection for users on IPATCHED units.</p>
+         <p style="padding-top:15px">Understand that this means it is incredibly easy to do something which, while considered normal on consoles with an exploitable RCM, <b>can render IPATCHED Switches permanently inoperable.</b> For your safety, you should avoid using the following
+            homebrews on IPATCHED systems:
+         </p>
+         <ul>
             <li>memloader</li>
             <li>ChoiDujour</li>
             <li>ChoiDujourNX (safe on emuMMC, do not use on sysnand)</li>
-            <li>Anything involving AutoRCM (briccmii, SX OS payload, etc)
-                <ul>
-                    <li>Many homebrews have been updated to block enabling AutoRCM on IPATCHED units including Hekate and ChoiDujourNX. Still exercise very high caution.</li>
-                </ul>
+            <li>
+               Anything involving AutoRCM (briccmii, SX OS payload, etc)
+               <ul>
+                  <li>Many homebrews have been updated to block enabling AutoRCM on IPATCHED units including Hekate and ChoiDujourNX. Still exercise very high caution.</li>
+               </ul>
             </li>
             <li>Anything which writes to sysNAND without proper security or verification in place</li>
-        </ul>
-
-        <p style="color:#ff6554">Upon using PegaScape to reboot into a payload on an IPATCHED Switch, you should <b>immediately</b> create a NAND backup with Hekate and dump all of your keys <b>(especially BIS keys)</b> with Lockpick_RCM. Understand that by not dumping these,
-            <b>there is no recovery method for your Switch should anything cause it to fail to boot.</b></p>
-
-        <p>You should <b>strongly consider</b> using an emuMMC <b>for all CFW usage</b> to avoid any damage to your Switch.</p>
-
-        <p>That said, <i>celebrate!</i> We can now run CFW on IPATCHED Switches!</p>
-
-        <h1>Demo</h1>
-
-        <iframe width="552" height="315" src="https://www.youtube.com/embed/hjZvmoRjA1U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        <iframe width="552" height="315" src="https://www.youtube.com/embed/s0R7vO6nO6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        <iframe width="552" height="315" src="https://www.youtube.com/embed/3vHY2e4SCeM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        <iframe width="552" height="315" src="https://www.youtube.com/embed/DBVjrjoZO8w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        <h1>Usage</h1>
-        <p>The <a href="https://switch.homebrew.guide">Homebrew Guide</a> has been updated to include options for PegaScape, including a full guide on bringing a 1.0.0-3.0.0 or 4.0.1-4.1.0 stock switch into full CFW. Otherwise, if you want to just jump in...</p>
-
-        <h2>DNS IP Addresses</h2>
-
-        <table class="table" style="margin-top:40px">
+         </ul>
+         <p style="color:#ff6554">Upon using PegaScape to reboot into a payload on an IPATCHED Switch, you should <b>immediately</b> create a NAND backup with Hekate and dump all of your keys <b>(especially BIS keys)</b> with Lockpick_RCM. Understand that by not dumping these,
+            <b>there is no recovery method for your Switch should anything cause it to fail to boot.</b>
+         </p>
+         <p>You should <b>strongly consider</b> using an emuMMC <b>for all CFW usage</b> to avoid any damage to your Switch.</p>
+         <p>That said, <i>celebrate!</i> We can now run CFW on IPATCHED Switches!</p>
+         <h1>Demo</h1>
+         <iframe width="552" height="315" src="https://www.youtube.com/embed/IDhYCrxQa3I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <iframe width="552" height="315" src="https://www.youtube.com/embed/s0R7vO6nO6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <iframe width="552" height="315" src="https://www.youtube.com/embed/3vHY2e4SCeM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <iframe width="552" height="315" src="https://www.youtube.com/embed/DBVjrjoZO8w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         <h1>Usage</h1>
+         <p>The <a href="https://switch.homebrew.guide">Homebrew Guide</a> has been updated to include options for PegaScape, including a full guide on bringing a 1.0.0-3.0.0 or 4.0.1-4.1.0 stock switch into full CFW. Otherwise, if you want to just jump in...</p>
+         <h2>DNS IP Addresses</h2>
+         <table class="table" style="margin-top:40px">
             <tbody>
-                <tr>
-                    <th scope="row">Webapplet (Fake News, 1.0 JP Puyo Puyo Tetris)</th>
-                    <td>163.172.181.170</td>
-                </tr>
-                <tr>
-                    <th scope="row">Wifi Authentication Prompt</th>
-                    <td>51.15.245.41</td>
-                </tr>
+               <tr>
+                  <th scope="row">Webapplet (Fake News, 1.0 JP Puyo Puyo Tetris)</th>
+                  <td>163.172.181.170</td>
+               </tr>
+               <tr>
+                  <th scope="row">Wifi Authentication Prompt</th>
+                  <td>51.15.245.41</td>
+               </tr>
             </tbody>
-        </table>
-
-        <p>Note that the public DNS servers are running the 90DNS configuration. This means you can use PegaScape and use homebrew with Internet functionality, but you cannot connect to any Nintendo services.
-            <p>
-
-
-                <p>If you would prefer to self-host PegaScape, see <a href="https://github.com/noahc3/PegaScape/#self-hosting">README.md#self-hosting</a>.</p>
-
-                <h2>SD Card Requirements</h2>
-
-                <p>You can grab all of these files easily from <a href="https://www.sdsetup.com/console?switch">SDSetup</a> with the Hekate+Atmosphere+PegaScape bundle.
-
-                    <table class="table" style="margin-top:40px">
-                        <tbody>
-                            <tr>
-                                <th scope="row">Nereba</th>
-                                <td><span class="monospace"><a href="https://github.com/AtlasNX/nereba/releases/latest">nereba.nsp</a></span> at <span class="monospace">sd:/pegascape/nereba.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">Caffeine</th>
-                                <td><span class="monospace"><a href="https://github.com/AtlasNX/caffeine/releases">caffeine.nsp</a></span> at <span class="monospace">sd:/pegascape/caffeine.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Reboot to RCM</th>
-                                <td><span class="monospace"><a href="https://github.com/pixel-stuck/reboot_to_rcm/releases">reboot_to_rcm.nsp</a></span> at <span class="monospace">sd:/pegascape/reboot_to_rcm.nsp</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">HBL</th>
-                                <td><span class="monospace"><a href="https://github.com/switchbrew/nx-hbloader/releases">hbl.nsp</a></span> at <span class="monospace">sd:/atmosphere/hbl.nsp</span> and <span class="monospace"><a href="https://github.com/switchbrew/nx-hbmenu/releases">hbmenu.nro</a></span>                                    at <span class="monospace">sd:/hbmenu.nro</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Fake News</th>
-                                <td><i>None</i></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h2>Running PegaScape</h2>
-                    <p style="padding-top:15px">Set your Switch's DNS IP settings to manual and set the primary DNS setting to the appropriate IP listed above for the browser entrypoint you wish to use. Then simply access the browser and you will be redirected to the PegaScape page!</p>
-
-                    <p style="padding-top:25px">PegaScape will only show scripts compatible with your firmware version, so there is no worry of accidentally running incompatible scripts.</p>
-
-                    <p style="padding-top:25px">A script can take between 5 to 30 seconds to launch depending on your Internet connection and the server status. If an exploit fails to launch, try re-entering the browser and trying again. If it fails to launch multiple times, verify
-                        the files are on your SD card in the correct locations, or try rebooting your console. Create an issue on GitHub or contact me (Noahc3) on Discord if issues persist.</p>
-
-                    <p>Note that the public DNS servers are running the 90DNS configuration. This means you can use PegaScape and use homebrew with Internet functionality, but you cannot connect to any Nintendo services.
-                        <p>
-
-                            <h2>Which browser/DNS IP should I use?</h2>
-                            <p>On 1.0.0, you must use the Webapplet DNS IP. You can use a JP copy of Puyo Puyo Tetris to access the browser, or you can use Fake News, a modified news entry which also launches the browser. Fake News can be installed with
-                                the Fake News entry on PegaScape, by injecting a News save with Fake News pre-installed, or by running the upcoming Fake News Injector homebrew.</p>
-
-                            <p style="padding-top:25px">On other firmwares, you can use the Webapplet DNS IP with Fake News in the same way as detailed above, or you can use the Wifi Authentication Prompt. When the respective DNS is configured, the Wifi Authentication Prompt can
-                                be accessed by attempting to manually connect to the Wifi network within settings, by trying to link an NNID, or by trying to manually update a game from the Software Update tab in software settings.</p>
-
-                            <h1>Credits</h1>
-
-                            <ul>
-                                <li>ReSwitched, hexkyz and other contributors for PegaSwitch.</li>
-                                <li>Everyone who worked on smhax, nvhax, nspwn, etc.</li>
-                                <li>liuervehc for <a href="https://github.com/liuervehc/caffeine/">Caffeine</a>, bringing the first CFW to IPATCHED Switches, and dealing with my random support DMs.</li>
-                                <li>stuck_pixel for <a href="https://github.com/pixel-stuck/nereba/">Nereba</a> and <a href="https://github.com/pixel-stuck/reboot_to_rcm">reboot_to_rcm</a>.</li>
-                                <li>Switchbrew for <a href="https://github.com/switchbrew/nx-hbloader">nx-hbloader</a>.</li>
-                                <li>bernv3 for the sexy background art.</li>
-                            </ul>
-
-                            <div id="footer">PegaScape by noahc3 with the support from tomGER, NicholeMattera, jaki, friedkeenan, Shadow, shchmue, WerWolv and elise | Based on <a href="https://github.com/reswitched/pegaswitch">PegaSwitch</a> by ReSwitched | Art by bernv3</div>
-
-    </div>
-</body>
-
+         </table>
+         <p>Note that the public DNS servers are running the 90DNS configuration. This means you can use PegaScape and use homebrew with Internet functionality, but you cannot connect to any Nintendo services.</p>
+         <p>If you use <a href="https://www.switchbru.com/dns/">SwitchBru DNS</a>, you can instead navigate to the exploit page at <a href="http://exploit.sdsetup.com">exploit.sdsetup.com</a>.</p>
+         <p>If you would prefer to self-host PegaScape, see <a href="https://github.com/noahc3/PegaScape/#self-hosting">README.md#self-hosting</a>.</p>
+         <h2>SD Card Requirements</h2>
+         <p>You can grab all of these files easily from <a href="https://www.sdsetup.com/console?switch">SDSetup</a> with the Hekate+Atmosphere+PegaScape bundle.
+         <table class="table" style="margin-top:40px">
+            <tbody>
+               <tr>
+                  <th scope="row">Nereba</th>
+                  <td><span class="monospace"><a href="https://github.com/AtlasNX/nereba/releases/latest">nereba.nsp</a></span> at <span class="monospace">sd:/pegascape/nereba.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
+               </tr>
+               <tr>
+                  <th scope="row">Caffeine</th>
+                  <td><span class="monospace"><a href="https://github.com/AtlasNX/caffeine/releases">caffeine.nsp</a></span> at <span class="monospace">sd:/pegascape/caffeine.nsp</span>, and a payload of your choice at <span class="monospace">sd:/atmosphere/reboot_payload.bin</span></td>
+               </tr>
+               <tr>
+                  <th scope="row">Reboot to RCM</th>
+                  <td><span class="monospace"><a href="https://github.com/pixel-stuck/reboot_to_rcm/releases">reboot_to_rcm.nsp</a></span> at <span class="monospace">sd:/pegascape/reboot_to_rcm.nsp</span></td>
+               </tr>
+               <tr>
+                  <th scope="row">HBL</th>
+                  <td><span class="monospace"><a href="https://github.com/switchbrew/nx-hbloader/releases">hbl.nsp</a></span> at <span class="monospace">sd:/atmosphere/hbl.nsp</span> and <span class="monospace"><a href="https://github.com/switchbrew/nx-hbmenu/releases">hbmenu.nro</a></span>                                    at <span class="monospace">sd:/hbmenu.nro</span></td>
+               </tr>
+               <tr>
+                  <th scope="row">Fake News</th>
+                  <td><i>None</i></td>
+               </tr>
+            </tbody>
+         </table>
+         <h2>Running PegaScape</h2>
+         <p style="padding-top:15px">Set your Switch's DNS IP settings to manual and set the primary DNS setting to the appropriate IP listed above for the browser entrypoint you wish to use. Then simply access the browser and you will be redirected to the PegaScape page!</p>
+         <p style="padding-top:25px">PegaScape will only show scripts compatible with your firmware version, so there is no worry of accidentally running incompatible scripts.</p>
+         <p style="padding-top:25px">A script can take between 5 to 30 seconds to launch depending on your Internet connection and the server status. If an exploit fails to launch, try re-entering the browser and trying again. If it fails to launch multiple times, verify
+            the files are on your SD card in the correct locations, or try rebooting your console. Create an issue on GitHub or contact me (Noahc3) on Discord if issues persist.
+         </p>
+         <p>Note that the public DNS servers are running the 90DNS configuration. This means you can use PegaScape and use homebrew with Internet functionality, but you cannot connect to any Nintendo services.
+         <p>
+         <h2>Which browser/DNS IP should I use?</h2>
+         <p>On 1.0.0, you must use the Webapplet DNS IP. You can use a JP copy of Puyo Puyo Tetris to access the browser, or you can use Fake News, a modified news entry which also launches the browser. Fake News can be installed with
+            the Fake News entry on PegaScape, by injecting a News save with Fake News pre-installed, or by running the upcoming Fake News Injector homebrew.
+         </p>
+         <p style="padding-top:25px">On other firmwares, you can use the Webapplet DNS IP with Fake News in the same way as detailed above, or you can use the Wifi Authentication Prompt. When the respective DNS is configured, the Wifi Authentication Prompt can
+            be accessed by attempting to manually connect to the Wifi network within settings, by trying to link an NNID, or by trying to manually update a game from the Software Update tab in software settings.
+         </p>
+         <h1>Credits</h1>
+         <ul>
+            <li>ReSwitched, hexkyz and other contributors for PegaSwitch.</li>
+            <li>Everyone who worked on smhax, nvhax, nspwn, etc.</li>
+            <li>liuervehc for <a href="https://github.com/liuervehc/caffeine/">Caffeine</a>, bringing the first CFW to IPATCHED Switches, and dealing with my random support DMs.</li>
+            <li>stuck_pixel for <a href="https://github.com/pixel-stuck/nereba/">Nereba</a> and <a href="https://github.com/pixel-stuck/reboot_to_rcm">reboot_to_rcm</a>.</li>
+            <li>Switchbrew for <a href="https://github.com/switchbrew/nx-hbloader">nx-hbloader</a>.</li>
+            <li>bernv3 for the sexy background art.</li>
+         </ul>
+         <div id="footer">PegaScape by noahc3 with the support from tomGER, NicholeMattera, jaki, friedkeenan, Shadow, shchmue, WerWolv and elise | Based on <a href="https://github.com/reswitched/pegaswitch">PegaSwitch</a> by ReSwitched | Art by bernv3</div>
+      </div>
+   </body>
 </html>

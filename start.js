@@ -118,7 +118,7 @@ function serveIndex (req, res) {
 		if (items.length > 0) {
 			indexT = indexT.replace("$$$ITEMS", items);
 		} else {
-			indexT = indexT.replace("$$$ITEMS", `<td><p id="no_scripts">There are no scripts compatible with your firmware version.</p></td>`);
+			indexT = indexT.replace("$$$ITEMS", `<td><p id="no_scripts">No scripts available for your firmware verson, PegaScape only supports firmware 4.1.0 and below.</p></td>`);
 		}
 		
 		indexT = indexT.replace("$$$VERSION", getVersionStringFromNumber(version));

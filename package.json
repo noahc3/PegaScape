@@ -41,7 +41,7 @@
     "yargs": "^7.0.2"
   },
   "devDependencies": {
-    "documentation": "^5.5.0",
+    "documentation": "^14.0.0",
     "eslint": "^4.19.1"
   }
 }
